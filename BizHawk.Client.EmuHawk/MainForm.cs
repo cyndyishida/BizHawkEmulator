@@ -41,9 +41,8 @@ namespace BizHawk.Client.EmuHawk
 {
 	public partial class MainForm : Form
 	{
-		#region Constructors and Initialization, and Tear down
-
-		private void MainForm_Load(object sender, EventArgs e)
+        #region Constructors and Initialization, and Tear down
+        private void MainForm_Load(object sender, EventArgs e)
 		{
 			SetWindowText();
 
@@ -92,8 +91,8 @@ namespace BizHawk.Client.EmuHawk
 			ret.DeactivateGLContext = () => GlobalWin.GLManager.Deactivate();
 			return ret;
 		}
-
-		public MainForm(string[] args)
+        public static string threadCount = "0";
+        public MainForm(string[] args)
 		{
 			GlobalWin.MainForm = this;
 			Global.Rewinder = new Rewinder
@@ -148,8 +147,8 @@ namespace BizHawk.Client.EmuHawk
 			};
 
             // TODO - replace this with some kind of standard dictionary-yielding parser in a separate component
-            int threadCount = 0;
-			string cmdRom = null;
+           
+            string cmdRom = null;
 			string cmdLoadState = null;
 			string cmdLoadSlot = null;
 			string cmdMovie = null;
@@ -170,10 +169,8 @@ namespace BizHawk.Client.EmuHawk
 				var arg = args[i].ToLower();
                 if (arg.StartsWith("--thread-count="))
                 {
-                    
-                    string threadNum = arg.Substring(arg.IndexOf('=') + 1);
-                    threadCount = Int32.Parse(threadNum);
-                    Global.ThreadCount = threadCount;
+
+                    threadCount = arg.Substring(arg.IndexOf('=') + 1);
 
 
                 }
@@ -478,7 +475,15 @@ namespace BizHawk.Client.EmuHawk
 			};
 		}
 
+
+
 		private bool _supressSyncSettingsWarning = false;
+
+        public string GetThreadCount()
+        {
+            return threadCount;
+        }
+
 
 		public int ProgramRunLoop()
 		{

@@ -13,6 +13,7 @@ namespace BizHawk.Client.Common
 	{
 		public static bool DefaultToDisk;
 		public static bool DefaultToAWE;
+
 		public static IStringLog MakeStringLog()
 		{
 			if (DefaultToDisk)
@@ -22,6 +23,10 @@ namespace BizHawk.Client.Common
 			else return new ListStringLog();
 		}
 	}
+
+
+
+
 
 	public interface IStringLog : IDisposable, IEnumerable<string>
 	{

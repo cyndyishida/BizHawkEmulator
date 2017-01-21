@@ -15,11 +15,21 @@ namespace BizHawk.Client.EmuHawk
 {
 	static class Program
 	{
-		static Program()
+
+
+
+
+        public static string ThreadCount;
+        static Program()
 		{
 			//this needs to be done before the warnings/errors show up
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
+
+
+
+
+
 
             //http://www.codeproject.com/Articles/310675/AppDomain-AssemblyResolve-Event-Tips
 #if WINDOWS
@@ -115,7 +125,8 @@ namespace BizHawk.Client.EmuHawk
 			Global.Config = ConfigService.Load<Config>(iniPath);
 			Global.Config.ResolveDefaults();
 			BizHawk.Client.Common.StringLogUtil.DefaultToDisk = Global.Config.MoviesOnDisk;
-			BizHawk.Client.Common.StringLogUtil.DefaultToAWE = Global.Config.MoviesInAWE;
+            BizHawk.Client.Common.StringLogUtil.DefaultToAWE = Global.Config.MoviesInAWE;
+
 
 			//super hacky! this needs to be done first. still not worth the trouble to make this system fully proper
 			for (int i = 0; i < args.Length; i++)
@@ -220,6 +231,8 @@ namespace BizHawk.Client.EmuHawk
                         mf.Show();
                         mf.Text = title;
 
+
+                        ThreadCount = mf.GetThreadCount();
                         GlobalWin.ExitCode = mf.ProgramRunLoop();
                     }
                    
@@ -250,7 +263,15 @@ namespace BizHawk.Client.EmuHawk
 							mf.Show();
 							mf.Text = title;
 
-							if (System.Diagnostics.Debugger.IsAttached)
+                            ThreadCount = mf.GetThreadCount();
+               
+
+
+
+
+
+
+                            if (System.Diagnostics.Debugger.IsAttached)
 							{
 								GlobalWin.ExitCode = mf.ProgramRunLoop();
 							}
@@ -374,6 +395,7 @@ namespace BizHawk.Client.EmuHawk
 #if WINDOWS
 		public class SingleInstanceController : WindowsFormsApplicationBase
 		{
+
 			readonly string[] cmdArgs;
 			public SingleInstanceController(string[] args)
 			{

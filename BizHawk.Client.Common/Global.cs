@@ -14,7 +14,6 @@ namespace BizHawk.Client.Common
 		public static CheatCollection CheatList;
 		public static FirmwareManager FirmwareManager;
 		public static Rewinder Rewinder;
-        public static int ThreadCount;
 
 		public static IMovieSession MovieSession = new MovieSession();
 

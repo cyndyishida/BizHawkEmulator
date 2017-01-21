@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using BizHawk.Client.Common;
 using LuaInterface;
 
+
 namespace BizHawk.Client.EmuHawk
 {
 	[Description("A library for creating and managing custom dialogs")]
@@ -21,6 +22,9 @@ namespace BizHawk.Client.EmuHawk
 
 		// TODO: replace references to ConsoleLuaLibrary.Log with a callback that is passed in
 		public override string Name { get { return "forms"; } }
+
+        
+
 
 		#region Forms Library Helpers
 
@@ -315,15 +319,12 @@ namespace BizHawk.Client.EmuHawk
             "getthreadNum",
             "Returns the specified thread # assignment for current running process of emulator&loaded lua script"
         )]
-
-        public int getThreadCount()
+        public string GetThreadCount()
         {
 
-            return Global.ThreadCount;
-
+            return Program.ThreadCount;
         }
-
-
+      
 
 
 

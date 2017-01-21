@@ -8,6 +8,7 @@ namespace BizHawk.Client.Common
 {
 	public class Config
 	{
+        
 		public static string ControlDefaultPath
 		{
 			get { return PathManager.MakeProgramRelativePath("defctrl.json"); }
@@ -128,6 +129,7 @@ namespace BizHawk.Client.Common
 		public string Update_LatestVersion = "";
 		public string Update_IgnoreVersion = "";
 		public bool CDLAutoSave = true, CDLAutoStart = true;
+  
 
 		//public bool TurboSeek = true; // When PauseOnFrame is set, this will decide whether the client goes into turbo mode or not
 
