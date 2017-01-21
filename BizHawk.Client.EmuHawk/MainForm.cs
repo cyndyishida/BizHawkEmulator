@@ -171,14 +171,10 @@ namespace BizHawk.Client.EmuHawk
                 if (arg.StartsWith("--thread-count="))
                 {
                     
-
                     string threadNum = arg.Substring(arg.IndexOf('=') + 1);
                     threadCount = Int32.Parse(threadNum);
+                    Global.ThreadCount = threadCount;
 
-
-                    // debug method!! writing values to .txt to see because can't debug on vs through cli
-                    //string output = "The current thread number is " + threadNum;
-                    //System.IO.File.WriteAllText(@".\debugging.txt", output);
 
                 }
 

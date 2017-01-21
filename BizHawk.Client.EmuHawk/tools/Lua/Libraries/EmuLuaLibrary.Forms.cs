@@ -309,7 +309,25 @@ namespace BizHawk.Client.EmuHawk
 			return string.Empty == ""? "0": string.Empty;
 		}
 
-		[LuaMethodAttributes(
+
+
+        [LuaMethodAttributes(
+            "getthreadNum",
+            "Returns the specified thread # assignment for current running process of emulator&loaded lua script"
+        )]
+
+        public int getThreadCount()
+        {
+
+            return Global.ThreadCount;
+
+        }
+
+
+
+
+
+        [LuaMethodAttributes(
 			"ischecked",
 			"Returns the given checkbox's checked property"
 		)]
