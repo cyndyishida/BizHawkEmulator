@@ -551,10 +551,11 @@ namespace BizHawk.Client.EmuHawk
 
                 CheckMessages();
 
-
+                // way to load lua file without causing invalid compilation in lua code
                 if (second  == 2)
                 {
-                    current.LoadLuaFile("C:\\Source\\SpartaHacks17\\Lua\\NES\\SethAI.lua");
+                    //SORRY THIS IS HARDCODED
+                    current.LoadLuaFile(".\\Lua\\NES\\SethAI.lua");
                 }
 
                 if (first)
