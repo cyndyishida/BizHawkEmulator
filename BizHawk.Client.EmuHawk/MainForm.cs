@@ -148,7 +148,7 @@ namespace BizHawk.Client.EmuHawk
 			};
 
             // TODO - replace this with some kind of standard dictionary-yielding parser in a separate component
-            string threadCount = null;
+            int threadCount = 0;
 			string cmdRom = null;
 			string cmdLoadState = null;
 			string cmdLoadSlot = null;
@@ -170,8 +170,15 @@ namespace BizHawk.Client.EmuHawk
 				var arg = args[i].ToLower();
                 if (arg.StartsWith("--thread-count="))
                 {
-                    threadCount = arg.Substring(arg.IndexOf('=') + 1);
-                    Console.Write(threadCount);
+                    
+
+                    string threadNum = arg.Substring(arg.IndexOf('=') + 1);
+                    threadCount = Int32.Parse(threadNum);
+
+
+                    // debug method!! writing values to .txt to see because can't debug on vs through cli
+                    //string output = "The current thread number is " + threadNum;
+                    //System.IO.File.WriteAllText(@".\debugging.txt", output);
 
                 }
 
