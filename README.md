@@ -9,8 +9,8 @@ _Changes Completed_
 
 
 _Goals_
--create c++ wrapper to eventually run multithreaded processes of emulators
--start spitting out input to emulator/lua networks
+- create c++ wrapper to eventually run multithreaded processes of emulators
+- start spitting out input to emulator/lua networks
 - read output from emulator //  store values
 - assess output, pick best species
 - kill processes according to output
